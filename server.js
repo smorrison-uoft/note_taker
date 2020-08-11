@@ -9,7 +9,9 @@ app.use(express.json())
 app.use(express.urlencoded({extended:true}))
 app.use(express.static("public"))
 app.use("/api", apiroutes)
-app.use("/", htmlRoutes)
+
+require ("./routes/html-routes")(app)
+
 
 // listener
 app.listen(PORT, () => console.log(`Listening on PORT: ${PORT}`));

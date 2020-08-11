@@ -7,7 +7,7 @@ router.get("/notes", function(req, res){
 });
 
 router.post("/notes", function (req, res) {
-    store
+    Store
         .addNote(req.body)
         .then((notes) => res.json(notes))
         .catch(err => res.status(500).json(err))
@@ -15,7 +15,7 @@ router.post("/notes", function (req, res) {
 
 router.delete("/notes/:title", function (req, res) {
     store
-        .deleteNotes(req.params.title)
+        .removeNotes(req.params.title)
         .then(() => res.json({ ok: true }))
         .catch(err => res.status(500).json(err))
 });
